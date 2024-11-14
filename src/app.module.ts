@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './auth/entities/User';
 import { PassportModule } from '@nestjs/passport';
+import { WeatherModule } from './weather/weather.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { PassportModule } from '@nestjs/passport';
       synchronize: true,
     }),
     PassportModule.register({ session: true }),
+    WeatherModule,
   ],
   controllers: [AppController],
   providers: [AppService],
