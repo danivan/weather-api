@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './auth/entities/User';
+import { User } from './auth/entities/user.entity';
 import { PassportModule } from '@nestjs/passport';
 import { WeatherModule } from './weather/weather.module';
+import { CityModule } from './city/city.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { WeatherModule } from './weather/weather.module';
     }),
     PassportModule.register({ session: true }),
     WeatherModule,
+    CityModule,
   ],
   controllers: [AppController],
   providers: [AppService],
